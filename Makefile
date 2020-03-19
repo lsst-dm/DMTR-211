@@ -53,7 +53,7 @@ meta.tex: Makefile .FORCE
 #Traditional acronyms are better in this document
 acronyms.tex : ${TEX} myacronyms.txt skipacronyms.txt
 	echo ${TEXMFHOME}
-	python3 ${TEXMFHOME}/../bin/generateAcronyms.py -t "SE"    $(TEX)
+	python3 ${TEXMFHOME}/../bin/generateAcronyms.py -t "DM" -m tex   $(TEX)
 
 myacronyms.txt :
 	touch myacronyms.txt
