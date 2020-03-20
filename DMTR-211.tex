@@ -44,7 +44,15 @@ an LSST level 2 milestone pertaining to the Data Management Subsystem.
 \subsection{Objectives}
 \label{sect:objectives}
 
- 
+ Demonstrate that the Portal Aspect software has the ability to read from
+and write to a WebDAV server in the LSP.\\
+This test plan performs only a partial verification of the applicable
+requirements, as this Level 3 milestone was understood to represent
+demonstration of the ability to interface with a WebDAV service, not the
+LSP-system-level test of the full role of the User File Workspace in the
+LSP design.\\[2\baselineskip]Note that at the time of testing, only a
+demonstration-level WebDAV service was available, not integrated with
+the Notebook Aspect user file system.
 
 
 
@@ -93,6 +101,7 @@ The current status of test plan \href{https://jira.lsstcorp.org/secure/Tests.jsp
 
 \subsection{Verification Environment}
 \label{sect:hwconf}
+  An LDF-hosted instance of the Science Platform
 
 
 
@@ -133,14 +142,6 @@ The personnel involved in the test campaign is shown in the following table.
 Gregory Dubois-Felsmann}
 } \\\hline
 \textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T609}{LVV-T609}
-& {\small Jeffrey Carlin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T681}{LVV-T681}
 & {\small Jeffrey Carlin } & {\small  } &
 \begin{minipage}[]{6cm}
@@ -158,14 +159,6 @@ Gregory Dubois-Felsmann}
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T745}{LVV-T745}
-& {\small Jeffrey Carlin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T614}{LVV-T614}
 & {\small Jeffrey Carlin } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
@@ -200,16 +193,6 @@ Gregory Dubois-Felsmann}
 \multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}:} &
 \multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8 SUIT Portal integrated with workspace }} & Not Executed \\\hline
 \textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T609}{LVV-T609}
-&  1
-& Not Executed &
-\begin{minipage}[]{9cm}
-\smallskip
-
-\medskip
-\end{minipage}
-&
-\\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T681}{LVV-T681}
 &  1
 & Not Executed &
@@ -231,16 +214,6 @@ Gregory Dubois-Felsmann}
 &
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T745}{LVV-T745}
-&  1
-& Not Executed &
-\begin{minipage}[]{9cm}
-\smallskip
-
-\medskip
-\end{minipage}
-&
-\\\hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T614}{LVV-T614}
 &  1
 & Not Executed &
 \begin{minipage}[]{9cm}
@@ -295,53 +268,6 @@ Not provided.
 Not provided.
 
 \subsubsection{Test Cases in LVV-C151 Test Cycle}
-
-\paragraph{ LVV-T609 - Verify providing user file storage in LSP }\mbox{}\\
-
-Version \textbf{1}.
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T609}{\textit{ LVV-T609 } }
-test case in Jira.
-
-Verify that the LSP provides a user file workspace for storage of user
-generated data files. These shall be accessible from all three aspects.
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-\end{longtable}
 
 \paragraph{ LVV-T681 - Verify visualization of workspace data }\mbox{}\\
 
@@ -448,53 +374,6 @@ test case in Jira.
 Verify that the Portal aspect includes mechanisms for a user to download
 image data to a remote site or to the Workspace, from both screens
 displaying images and screens displaying lists of image metadata.
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-\end{longtable}
-
-\paragraph{ LVV-T614 - Verify ability to transfer data to and from the Workspace }\mbox{}\\
-
-Version \textbf{1}.
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T614}{\textit{ LVV-T614 } }
-test case in Jira.
-
-Verify that users can transfer data between all features of the LSP that
-allow for upload and download of data.
 
 \textbf{ Preconditions}:\\
 
