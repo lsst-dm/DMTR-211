@@ -3,9 +3,11 @@
 \usepackage{longtable,booktabs}
 \usepackage{enumitem}
 \usepackage{arydshln}
+\usepackage{attachfile}
 
 \input meta.tex
 
+\newcommand{\attachmentsUrl}{https://github.com/\gitorg/\lsstDocType-\lsstDocNum/blob/\gitref/attachments}
 \providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
@@ -13,24 +15,23 @@
 
 \begin{document}
 
-\def\milestoneName{Dm-Suit-8 Suit Portal Integrated With Workspace}
-\def\milestoneId{LVV-P69}
+\def\milestoneName{Portal integrated with workspace}
+\def\milestoneId{DM-SUIT-8}
 \def\product{LSP Services}
 
 \setDocCompact{true}
 
-\title{ LVV-P69 Dm-Suit-8 Suit Portal Integrated With Workspace Test Plan and Report}
+\title{DM-SUIT-8 - Portal integrated with workspace Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \date{\vcsdate}
-\setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
 \author{ Gregory Dubois-Felsmann }
 
-\input history_and_info.tex
+\input{history_and_info.tex}
 
 
 \setDocAbstract{
-This is the test plan and report for LVV-P69 (Dm-Suit-8 Suit Portal Integrated With Workspace),
-an LSST level 2 milestone pertaining to the Data Management Subsystem.
+This is the test plan and report for DM-SUIT-8 (Portal integrated with workspace),
+an LSST milestone pertaining to the Data Management Subsystem.
 }
 
 
@@ -65,31 +66,34 @@ LSST Science Platform Requirements
 \subsection{Document Overview}
 \label{sect:docoverview}
 
-This document was generated from Jira, obtaining the relevant information from the 
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P69}{LVV-P69}
+This document was generated from Jira, obtaining the relevant information from the
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69}
 ~Jira Test Plan and related Test Cycles (
-  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C151}{LVV-C151}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}
 ).
 
 Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}),
 the applicable documentation, and explains how this document is organized.
-Section \ref{sect:configuration}  describes the configuration used for this test.
+Section \ref{sect:testplan} provides additional information about the test plan, like for example the configuration
+used for this test or related documentation.
 Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
-%Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases,
-including all relevant information that fully describes the test campaign.
 
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary},
 an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P69 in Jira is \textbf{ Draft }.
+The current status of test plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69} in Jira is \textbf{ Draft }.
 
 \subsection{References}
 \label{sect:references}
 \renewcommand{\refname}{}
-\bibliography{lsst,refs,books,refs_ads}
-\section{Test Configuration}
-\label{sect:configuration}
+\bibliography{lsst,refs,books,refs_ads,local}
+
+
+\newpage
+\section{Test Plan Details}
+\label{sect:testplan}
+
 
 \subsection{Data Collection}
 
@@ -102,22 +106,42 @@ The current status of test plan LVV-P69 in Jira is \textbf{ Draft }.
 
 
 
+\subsection{Related Documentation}
+
+The documentation related to this test campaign should be provided in the following DocuShare Collection
+(as per Verification Artifacts in Jira test plan LVV-P69).
+
+\begin{itemize}
+\item DocuShare Collection Not Specified
+\end{itemize}
+
+
+
+\subsection{PMCS Activity}
+
+Primavera milestones related to the test campaign.
+
+\begin{itemize}
+\item None
+\end{itemize}
+
+
 \newpage
 \section{Personnel}
 \label{sect:personnel}
 
-The personnel involved in the test campaign are shown in the following table.
+The personnel involved in the test campaign is shown in the following table.
 
+{\small
 \begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
 \hline
-\multicolumn{2}{r}{Test Plan (LVV-P69) owner:} &
+\multicolumn{2}{r}{T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69} owner:} &
 \multicolumn{2}{l}{\textbf{ Gregory Dubois-Felsmann } }\\\hline
-\multicolumn{2}{r}{ LVV-C151 owner:} &
+\multicolumn{2}{r}{T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151} owner:} &
 \multicolumn{2}{l}{\textbf{
-    Gregory Dubois-Felsmann
-}
+Gregory Dubois-Felsmann}
 } \\\hline
-\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
 & {\small Gregory Dubois-Felsmann } & {\small  } &
 \begin{minipage}[]{6cm}
@@ -127,6 +151,7 @@ The personnel involved in the test campaign are shown in the following table.
 \end{minipage}
 \\ \hline
 \end{longtable}
+}
 
 \newpage
 
@@ -136,26 +161,28 @@ The personnel involved in the test campaign are shown in the following table.
 \subsection{Summary}
 \label{sect:summarytable}
 
-\begin{longtable}{p{2cm}p{2.5cm}p{9cm}p{2.5cm}}
+{\small
+\begin{longtable}{p{2cm}cp{2.3cm}p{8.6cm}p{2.3cm}}
 \toprule
-\multicolumn{3}{p{13.5cm}}{ Test Plan {\bf LVV-P69: DM-SUIT-8 SUIT Portal integrated with workspace }} & Draft \\\hline
-
-  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C151: DM-SUIT-8 SUIT Portal integrated with workspace }} & Not Executed \\\hline
-
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
-
+\multicolumn{2}{r}{ T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal integrated with workspace }} & Draft \\\hline
+\multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal integrated with workspace }} & Not Executed \\\hline
+\textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+
+\medskip
+\end{minipage}
+&
+\\\hline
 \caption{Test Campaign Summary}
 \label{table:summary}
 \end{longtable}
+}
 
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
@@ -173,12 +200,14 @@ Not yet available.
 
 \subsection{Test Cycle LVV-C151 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C151}{DM-SUIT-8 SUIT Portal integrated with workspace}} in Jira.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C151}{DM-SUIT-8: Portal integrated with workspace}} in Jira.
 
-DM-SUIT-8 SUIT Portal integrated with workspace\\
+Test Cycle name: DM-SUIT-8: Portal integrated with workspace\\
 Status: Not Executed
 
-
+This test cycle contains a single test case which demonstrates several
+of the Portal Aspect features of interaction with the User File
+Workspace.
 
 \subsubsection{Software Version/Baseline}
 Not provided.
@@ -188,8 +217,9 @@ Not provided.
 
 \subsubsection{Test Cases in LVV-C151 Test Cycle}
 
-\paragraph{Test Case LVV-T1818 - DM-SUIT-8: Verify Portal integration with workspace (via WebDAV) }\mbox{}\\
+\paragraph{ LVV-T1818 - DM-SUIT-8: Verify Portal integration with workspace (via WebDAV) }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{\textit{ LVV-T1818 } }
 test case in Jira.
 
