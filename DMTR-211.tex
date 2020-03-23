@@ -118,35 +118,11 @@ The personnel involved in the test campaign are shown in the following table.
 }
 } \\\hline
 \textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T681}{LVV-T681}
-& {\small Jeffrey Carlin } & {\small  } &
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
+& {\small Gregory Dubois-Felsmann } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T744}{LVV-T744}
-& {\small Jeffrey Carlin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T745}{LVV-T745}
-& {\small Jeffrey Carlin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T636}{LVV-T636}
-& {\small Jeffrey Carlin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
+{\small An authorized user of the LSP instance under test }
 \medskip
 \end{minipage}
 \\ \hline
@@ -168,34 +144,7 @@ The personnel involved in the test campaign are shown in the following table.
 
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T681}{LVV-T681}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T744}{LVV-T744}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T745}{LVV-T745}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T636}{LVV-T636}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
     & Not Executed &
     \begin{minipage}[]{9cm}
     \smallskip
@@ -239,16 +188,51 @@ Not provided.
 
 \subsubsection{Test Cases in LVV-C151 Test Cycle}
 
-\paragraph{Test Case LVV-T681 - Verify visualization of workspace data }\mbox{}\\
+\paragraph{Test Case LVV-T1818 - DM-SUIT-8: Verify Portal integration with workspace (via WebDAV) }\mbox{}\\
 
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T681}{\textit{ LVV-T681 } }
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{\textit{ LVV-T1818 } }
 test case in Jira.
 
-Verify that data selected in a workspace browser can be conveniently
-visualized.
+This test case verifies that the Portal Aspect software is capable of
+accessing a file-oriented workspace via the WebDAV
+protocol.\\[2\baselineskip]In so doing, it partially verifies several
+Portal Aspect requirements that relate to this capability -
+``partially'' because some of these requirements depend on workspace
+capabilities which were not present in the prototype WebDAV service
+delivered by the DAX group, and also because the milestone was not
+envisioned as an exhaustive test covering edge cases:
+
+\begin{itemize}
+\tightlist
+\item
+  DMS-PRTL-REQ-0003 (LVV-9846, Portal access to workspace) is covered at
+  ``demonstration'' level, with basic tests of saving image and tabular
+  data to the workspace, and only for the User File Workspace ~(there is
+  currently no User Database Workspace prototype available);
+\item
+  DMS-PRTL-REQ-0046 (LVV-9886, Visualization of workspace data) is
+  covered at ``demonstration'' level for a couple of FITS image and
+  table files, and only for the User File Workspace;
+\item
+  DMS-PRTL-REQ-0110 (LVV-9954, Tabular data download) is covered at
+  ``demonstration'' level, only for catalog data (there was no image
+  metadata in the LSP deployment at the time of test), and only for the
+  User File Workspace;~
+\item
+  DMS-PRTL-REQ-0095 (LVV-9932, Saving Displayed Tabular Data) is covered
+  at ``demonstration'' level for a simple subset operation in the table
+  browser; and
+\item
+  DMS-PRTL-REQ-0111 (LVV-9951, Image data download) is covered at
+  ``demonstration'' level, and only for download from an image display
+  screen itself (as LSST-style image metadata services, e.g., ObsTAP,
+  were not available in the LSP at the time of testing).
+\end{itemize}
 
 \textbf{ Preconditions}:\\
-
+A read/write WebDAV service, accessible to the user performing the test,
+must be available and under the same authentication redirect coverage as
+the Portal Aspect and the TAP service used for the test.
 
 Execution status: {\bf Not Executed }
 
@@ -263,6 +247,322 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Using a web browser, navigate to the home page of the selected instance
+of the LSP at the LDF. ~From the displayed page, navigate to the Portal
+Aspect and log in with valid credentials for the instance under test.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Successful login to the Portal should display the TAP search screen by
+default.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Navigate to the TAP search screen, if necessary (in case the default
+Portal screen was changed since this test was written), and ensure that
+the LSST TAP service associated with the chosen LSP instance is
+selected.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The lists of schemas and tables available in the services should be
+displayed as selectable menus.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Perform a TAP search on the AllWISE source catalog around the equatorial
+coordinates (2, 0) (degrees), with a 30 arcminute radius, using the
+Portal UI to specify the query (select the ``Single Table'' radio
+button). ~\\
+To find the AllWISE source catalog, select the ``wise\_00'' schema from
+the schema menu, and then the ``wise\_00.allwise\_p3as\_psd'' table from
+the table menu. Use the column selector pane of the search screen to
+select the ``ra, decl, source\_id, w1mpro, w2mpro, w3mpro, w4mpro''
+columns for retrieval.\\
+When the query completes, note the total number of rows in the table, as
+displayed in the table header, and record it.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Equatorial coordinates: (2, 0), cone radius 30 arcmin
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+This query should return about 12,000 rows of data. ~It should be
+displayed in a table, as an overlay on a context image, and as a
+configurable 2D density plot.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Using the table viewer UI, save the result of this search as a text file
+in CSV format, specifying that the file be saved to the ``workspace''.
+~Ensure that the CSV file's name is ``LVV-T1818-ufw-table.csv''.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+A UI indication that the file has been successfully saved to the
+workspace.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the table viewer UI, use the ``funnel'' icon in the table toolbar, if
+necessary, to make the column-header filtering text boxes visible.
+~Locate the ``w1mpro'' column (band W1 magnitude), enter the filter
+expression ``\textless{}8'', and hit TAB or RETURN to apply the filter.
+~Note the number of rows remaining following the application of the
+filter.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Filter expression ``\textless{} 8'' for the ``w1mpro'' column.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Approximately 10 rows should remain visible.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Using the table viewer UI, save the result of this search as a text file
+in CSV format, specifying that the file be saved to the ``workspace''.
+~Ensure that the CSV file's name is ``LVV-T1818-ufw-table-w1m8.csv''.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+A UI indication that the file has been successfully saved to the
+workspace.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Navigate to the legacy IRSA image access screen, using the blue
+``External Images'' button at the top of the
+screen.\\[2\baselineskip]Note that and the following step are being done
+exclusively to load an image into the viewer, not itself to demonstrate
+an LSP-Portal-specific capability; this test bypasses the lack of a
+current image query service in the LSP.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The ``IRSA Viewer'' image-search screen will be displayed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Use the UI to load a WISE band W1 image for the coordinates (2,0)
+without a cutout size limit:
+
+\begin{enumerate}
+\tightlist
+\item
+  Choose Image Type: ``View FITS Images''
+\item
+  Select Image Source: ``Search''
+\item
+  Select Target: ``Name or Position'' set to ``2 0''; ``Cutout size''
+  left blank
+\item
+  Select Data Set:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    If ``WISE AllWISE Atlas'' is not immediately visible under
+    ``Selection'', use the ``MISSION'' checkbox on the left to narrow
+    the scope to ``WISE''.
+  \item
+    Use the disclosure triangle to the left of ``WISE AllWISE Atlas'' to
+    reveal the filter band selection boxes, and select ``W1''.
+  \end{enumerate}
+\item
+  Click on the ``Search'' button at the bottom of the screen.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Equatorial coordinates (2, 0) expressed as ``2 0'' (``2, 0'' will also
+work).
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+An image for the selected region of sky should be displayed. ~As the
+chosen coordinates are not centered in one of the WISE coadded atlas sky
+tiles, a ``target'' glyph will be seen displayed off-center at the (2,0)
+coordinates.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Use the ``save'' action from the image toolbar - the ``floppy disk''
+icon at the far left of the toolbar (in the version of Firefly current
+at the time of writing) to save the image in FITS format to the
+workspace. ~Ensure that the image name is ``LVV-T1818-ufw-image.fits''.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+A UI indication of a successful file-save action.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+10 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Close the web browser tab or window being used for the test, but do not
+quit the browser or clear credentials. ~(That is only for convenience;
+it is also acceptable to log out entirely and log in again.)
 
 \medskip }
 \end{minipage}
@@ -283,34 +583,12 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T744 - Verify tabular data download }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T744}{\textit{ LVV-T744 } }
-test case in Jira.
-
-Verify that the Portal aspect includes a mechanism for a user to
-download to a remote site, Workspace, or to an existing or new user
-database the tabular results from a database query, including for
-catalog or image metadata.
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+11 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Using the same web browser, navigate to the home page of the selected
+instance of the LSP at the LDF. ~From the displayed page, navigate to
+the Portal Aspect.
 
 \medskip }
 \end{minipage}
@@ -319,6 +597,10 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+No credentials should be needed unless an explicit logout or
+credential-clearing action was performed.\\[2\baselineskip]The Portal
+Aspect UI should be displayed with the TAP search screen in the
+foreground and no image or tabular search results present.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -331,33 +613,14 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T745 - Verify image data download }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T745}{\textit{ LVV-T745 } }
-test case in Jira.
-
-Verify that the Portal aspect includes mechanisms for a user to download
-image data to a remote site or to the Workspace, from both screens
-displaying images and screens displaying lists of image metadata.
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+12 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Select the blue ``Upload'' button at the top of the screen. ~On the
+resulting screen, choose to upload from the workspace. ~Verify that the
+image file saved in Step 9 above, ``LVV-T1818-ufw-image.fits'', is
+visible. ~Select the file and open it with the UI. ~Verify qualitatively
+that it seems to be the same image as displayed above in Step 8.
 
 \medskip }
 \end{minipage}
@@ -366,6 +629,10 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The saved image should be displayed. ~Depending on the Portal Aspect
+software version deployed at the time of test, the image may be
+displayed immediately, or it may be necessary to navigate through a UI
+for choosing which extension in the file to display.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -378,32 +645,13 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T636 - Verify Portal access to Workspace }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T636}{\textit{ LVV-T636 } }
-test case in Jira.
-
-Verify that users can discover and retrieve data and images within their
-Workspace.
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+13 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Select ``Upload'' again. ~This time choose the filtered table file,
+``LVV-T1818-ufw-table-w1m8.csv''. ~Note the number of rows displayed and
+verify qualitatively that the sky coordinates correspond to the region
+around the original (2,0) search center.
 
 \medskip }
 \end{minipage}
@@ -412,6 +660,37 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The small, filtered table should be displayed, with the same number of
+rows as previously.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Select ``Upload'' again. ~This time choose the full table file,
+``LVV-T1818-ufw-table.csv''. ~Note the number of rows displayed and
+verify qualitatively that the sky coordinates correspond to the region
+around the original (2,0) search center.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The original query table should be displayed, with the same number of
+rows as previously.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
