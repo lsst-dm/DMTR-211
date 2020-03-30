@@ -4,6 +4,9 @@
 \usepackage{enumitem}
 \usepackage{arydshln}
 \usepackage{attachfile}
+\usepackage{array}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 \input meta.tex
 
@@ -21,7 +24,7 @@
 
 \setDocCompact{true}
 
-\title{DM-SUIT-8 - Portal Integrated with Workspace Test Plan and Report}
+\title{DM-SUIT-8: Portal Integrated with Workspace Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \date{\vcsdate}
 \author{ Gregory Dubois-Felsmann }
