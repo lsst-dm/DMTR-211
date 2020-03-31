@@ -53,7 +53,9 @@ This test plan performs only a partial verification of the applicable
 requirements, as this Level 3 milestone was understood to represent
 demonstration of the ability to interface with a WebDAV service, not the
 LSP-system-level test of the full role of the User File Workspace in the
-LSP design.\\[2\baselineskip]Note that at the time of testing, only a
+LSP design, and also because several of the relevant requirements also
+address the User Database Workspace, which is not yet
+available.\\[2\baselineskip]Note that at the time of testing, only a
 demonstration-level WebDAV service was available, not integrated with
 the Notebook Aspect user file system.
 
@@ -85,7 +87,7 @@ Section \ref{sect:overview} provides a summary of the test results, including an
 an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69} in Jira is \textbf{ Draft }.
+The current status of test plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69} in Jira is \textbf{ Approved }.
 
 \subsection{References}
 \label{sect:references}
@@ -124,9 +126,7 @@ The documentation related to this test campaign should be provided in the follow
 
 Primavera milestones related to the test campaign.
 
-\begin{itemize}
-\item None
-\end{itemize}
+DM-SUIT-8
 
 
 \newpage
@@ -168,7 +168,7 @@ Gregory Dubois-Felsmann}
 \begin{longtable}{p{2cm}cp{2.3cm}p{8.6cm}p{2.3cm}}
 \toprule
 \multicolumn{2}{r}{ T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69}:} &
-\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Draft \\\hline
+\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Approved \\\hline
 \multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}:} &
 \multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Not Executed \\\hline
 \textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
@@ -232,8 +232,10 @@ protocol.\\[2\baselineskip]In so doing, it partially verifies several
 Portal Aspect requirements that relate to this capability -
 ``partially'' because some of these requirements depend on workspace
 capabilities which were not present in the prototype WebDAV service
-delivered by the DAX group, and also because the milestone was not
-envisioned as an exhaustive test covering edge cases:
+delivered by the DAX group, because some of the requirements also cover
+the User Database Workspace (not relevant to this milestone, and not yet
+available), and also because the milestone was not envisioned as an
+exhaustive test covering edge cases:
 
 \begin{itemize}
 \tightlist
