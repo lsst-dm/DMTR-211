@@ -1,0 +1,745 @@
+\documentclass[DM,lsstdraft,STR,toc]{lsstdoc}
+\usepackage{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{enumitem}
+\usepackage{arydshln}
+\usepackage{attachfile}
+\usepackage{array}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\input meta.tex
+
+\newcommand{\attachmentsUrl}{https://github.com/\gitorg/\lsstDocType-\lsstDocNum/blob/\gitref/attachments}
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\setcounter{tocdepth}{4}
+
+\begin{document}
+
+\def\milestoneName{Portal Integrated with Workspace}
+\def\milestoneId{DM-SUIT-8}
+\def\product{LSP Services}
+
+\setDocCompact{true}
+
+\title{DM-SUIT-8: Portal Integrated with Workspace Test Plan and Report}
+\setDocRef{\lsstDocType-\lsstDocNum}
+\date{\vcsdate}
+\author{ Gregory Dubois-Felsmann }
+
+\input{history_and_info.tex}
+
+
+\setDocAbstract{
+This is the test plan and report for DM-SUIT-8 (Portal Integrated with Workspace),
+an LSST milestone pertaining to the Data Management Subsystem.
+}
+
+
+\maketitle
+
+\section{Introduction}
+\label{sect:intro}
+
+
+\subsection{Objectives}
+\label{sect:objectives}
+
+ Demonstrate that the Portal Aspect software has the ability to read from
+and write to a WebDAV server in the LSP.\\
+This test plan performs only a partial verification of the applicable
+requirements, as this Level 3 milestone was understood to represent
+demonstration of the ability to interface with a WebDAV service, not the
+LSP-system-level test of the full role of the User File Workspace in the
+LSP design, and also because several of the relevant requirements also
+address the User Database Workspace, which is not yet
+available.\\[2\baselineskip]Note that at the time of testing, only a
+demonstration-level WebDAV service was available, not integrated with
+the Notebook Aspect user file system.
+
+
+
+\subsection{System Overview}
+\label{sect:systemoverview}
+
+ \textbf{Applicable Documents:}\\[2\baselineskip]\citeds{LDM-554} Data Management
+LSST Science Platform Requirements
+
+
+\subsection{Document Overview}
+\label{sect:docoverview}
+
+This document was generated from Jira, obtaining the relevant information from the
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69}
+~Jira Test Plan and related Test Cycles (
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}
+).
+
+Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}),
+the applicable documentation, and explains how this document is organized.
+Section \ref{sect:testplan} provides additional information about the test plan, like for example the configuration
+used for this test or related documentation.
+Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
+
+Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary},
+an overall assessment statement and suggestions for possible improvements.
+Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
+
+The current status of test plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69} in Jira is \textbf{ Approved }.
+
+\subsection{References}
+\label{sect:references}
+\renewcommand{\refname}{}
+\bibliography{lsst,refs,books,refs_ads,local}
+
+
+\newpage
+\section{Test Plan Details}
+\label{sect:testplan}
+
+
+\subsection{Data Collection}
+
+  Observing is not required for this test campaign.
+
+\subsection{Verification Environment}
+\label{sect:hwconf}
+  An LDF-hosted instance of the Science Platform
+
+
+
+
+\subsection{Related Documentation}
+
+The documentation related to this test campaign should be provided in the following DocuShare Collection
+(as per Verification Artifacts in Jira test plan LVV-P69).
+
+\begin{itemize}
+\item DocuShare Collection Not Specified
+\end{itemize}
+
+
+
+\subsection{PMCS Activity}
+
+Primavera milestones related to the test campaign.
+
+DM-SUIT-8
+
+
+\newpage
+\section{Personnel}
+\label{sect:personnel}
+
+The personnel involved in the test campaign is shown in the following table.
+
+{\small
+\begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
+\hline
+\multicolumn{2}{r}{T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69} owner:} &
+\multicolumn{2}{l}{\textbf{ Gregory Dubois-Felsmann } }\\\hline
+\multicolumn{2}{r}{T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151} owner:} &
+\multicolumn{2}{l}{\textbf{
+Gregory Dubois-Felsmann}
+} \\\hline
+\textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
+& {\small Gregory Dubois-Felsmann } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small An authorized user of the LSP instance under test }
+\medskip
+\end{minipage}
+\\ \hline
+\end{longtable}
+}
+
+\newpage
+
+\section{Test Campaign Overview}
+\label{sect:overview}
+
+\subsection{Summary}
+\label{sect:summarytable}
+
+{\small
+\begin{longtable}{p{2cm}cp{2.3cm}p{8.6cm}p{2.3cm}}
+\toprule
+\multicolumn{2}{r}{ T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Approved \\\hline
+\multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Not Executed \\\hline
+\textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+
+\medskip
+\end{minipage}
+&
+\\\hline
+\caption{Test Campaign Summary}
+\label{table:summary}
+\end{longtable}
+}
+
+\subsection{Overall Assessment}
+\label{sect:overallassessment}
+
+Not yet available.
+
+\subsection{Recommended Improvements}
+\label{sect:recommendations}
+
+Not yet available.
+
+\newpage
+\section{Detailed Test Results}
+\label{sect:detailedtestresults}
+
+\subsection{Test Cycle LVV-C151 }
+
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C151}{DM-SUIT-8: Portal Integrated with Workspace}} in Jira.
+
+Test Cycle name: DM-SUIT-8: Portal Integrated with Workspace\\
+Status: Not Executed
+
+This test cycle contains a single test case which demonstrates several
+of the Portal Aspect features of interaction with the User File
+Workspace.
+
+\subsubsection{Software Version/Baseline}
+Not provided.
+
+\subsubsection{Configuration}
+Not provided.
+
+\subsubsection{Test Cases in LVV-C151 Test Cycle}
+
+\paragraph{ LVV-T1818 - DM-SUIT-8: Verify Portal integration with workspace (via WebDAV) }\mbox{}\\
+
+Version \textbf{1}.
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{\textit{ LVV-T1818 } }
+test case in Jira.
+
+This test case verifies that the Portal Aspect software is capable of
+accessing a file-oriented workspace via the WebDAV
+protocol.\\[2\baselineskip]In so doing, it partially verifies several
+Portal Aspect requirements that relate to this capability -
+``partially'' because some of these requirements depend on workspace
+capabilities which were not present in the prototype WebDAV service
+delivered by the DAX group, because some of the requirements also cover
+the User Database Workspace (not relevant to this milestone, and not yet
+available), and also because the milestone was not envisioned as an
+exhaustive test covering edge cases:
+
+\begin{itemize}
+\tightlist
+\item
+  DMS-PRTL-REQ-0003 (LVV-9846, Portal access to workspace) is covered at
+  ``demonstration'' level, with basic tests of saving image and tabular
+  data to the workspace, and only for the User File Workspace ~(there is
+  currently no User Database Workspace prototype available);
+\item
+  DMS-PRTL-REQ-0046 (LVV-9886, Visualization of workspace data) is
+  covered at ``demonstration'' level for a couple of FITS image and
+  table files, and only for the User File Workspace;
+\item
+  DMS-PRTL-REQ-0110 (LVV-9954, Tabular data download) is covered at
+  ``demonstration'' level, only for catalog data (there was no image
+  metadata in the LSP deployment at the time of test), and only for the
+  User File Workspace;~
+\item
+  DMS-PRTL-REQ-0095 (LVV-9932, Saving Displayed Tabular Data) is covered
+  at ``demonstration'' level for a simple subset operation in the table
+  browser; and
+\item
+  DMS-PRTL-REQ-0111 (LVV-9951, Image data download) is covered at
+  ``demonstration'' level, and only for download from an image display
+  screen itself (as LSST-style image metadata services, e.g., ObsTAP,
+  were not available in the LSP at the time of testing).
+\end{itemize}
+
+\textbf{ Preconditions}:\\
+A read/write WebDAV service, accessible to the user performing the test,
+must be available and under the same authentication redirect coverage as
+the Portal Aspect and the TAP service used for the test.
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Using a web browser, navigate to the home page of the selected instance
+of the LSP at the LDF. ~From the displayed page, navigate to the Portal
+Aspect and log in with valid credentials for the instance under test.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Successful login to the Portal should display the TAP search screen by
+default.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Navigate to the TAP search screen, if necessary (in case the default
+Portal screen was changed since this test was written), and ensure that
+the LSST TAP service associated with the chosen LSP instance is
+selected.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The lists of schemas and tables available in the services should be
+displayed as selectable menus.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Perform a TAP search on the AllWISE source catalog around the equatorial
+coordinates (2, 0) (degrees), with a 30 arcminute radius, using the
+Portal UI to specify the query (select the ``Single Table'' radio
+button). ~\\
+To find the AllWISE source catalog, select the ``wise\_00'' schema from
+the schema menu, and then the ``wise\_00.allwise\_p3as\_psd'' table from
+the table menu. Use the column selector pane of the search screen to
+select the ``ra, decl, source\_id, w1mpro, w2mpro, w3mpro, w4mpro''
+columns for retrieval.\\
+When the query completes, note the total number of rows in the table, as
+displayed in the table header, and record it.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Equatorial coordinates: (2, 0), cone radius 30 arcmin
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+This query should return about 12,000 rows of data. ~It should be
+displayed in a table, as an overlay on a context image, and as a
+configurable 2D density plot.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Using the table viewer UI, save the result of this search as a text file
+in CSV format, specifying that the file be saved to the ``workspace''.
+~Ensure that the CSV file's name is ``LVV-T1818-ufw-table.csv''.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+A UI indication that the file has been successfully saved to the
+workspace.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the table viewer UI, use the ``funnel'' icon in the table toolbar, if
+necessary, to make the column-header filtering text boxes visible.
+~Locate the ``w1mpro'' column (band W1 magnitude), enter the filter
+expression ``\textless{}8'', and hit TAB or RETURN to apply the filter.
+~Note the number of rows remaining following the application of the
+filter.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Filter expression ``\textless{} 8'' for the ``w1mpro'' column.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Approximately 10 rows should remain visible.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Using the table viewer UI, save the result of this search as a text file
+in CSV format, specifying that the file be saved to the ``workspace''.
+~Ensure that the CSV file's name is ``LVV-T1818-ufw-table-w1m8.csv''.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+A UI indication that the file has been successfully saved to the
+workspace.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Navigate to the legacy IRSA image access screen, using the blue
+``External Images'' button at the top of the
+screen.\\[2\baselineskip]Note that and the following step are being done
+exclusively to load an image into the viewer, not itself to demonstrate
+an LSP-Portal-specific capability; this test bypasses the lack of a
+current image query service in the LSP.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The ``IRSA Viewer'' image-search screen will be displayed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Use the UI to load a WISE band W1 image for the coordinates (2,0)
+without a cutout size limit:
+
+\begin{enumerate}
+\tightlist
+\item
+  Choose Image Type: ``View FITS Images''
+\item
+  Select Image Source: ``Search''
+\item
+  Select Target: ``Name or Position'' set to ``2 0''; ``Cutout size''
+  left blank
+\item
+  Select Data Set:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    If ``WISE AllWISE Atlas'' is not immediately visible under
+    ``Selection'', use the ``MISSION'' checkbox on the left to narrow
+    the scope to ``WISE''.
+  \item
+    Use the disclosure triangle to the left of ``WISE AllWISE Atlas'' to
+    reveal the filter band selection boxes, and select ``W1''.
+  \end{enumerate}
+\item
+  Click on the ``Search'' button at the bottom of the screen.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Equatorial coordinates (2, 0) expressed as ``2 0'' (``2, 0'' will also
+work).
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+An image for the selected region of sky should be displayed. ~As the
+chosen coordinates are not centered in one of the WISE coadded atlas sky
+tiles, a ``target'' glyph will be seen displayed off-center at the (2,0)
+coordinates.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Use the ``save'' action from the image toolbar - the ``floppy disk''
+icon at the far left of the toolbar (in the version of Firefly current
+at the time of writing) to save the image in FITS format to the
+workspace. ~Ensure that the image name is ``LVV-T1818-ufw-image.fits''.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+A UI indication of a successful file-save action.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+10 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Close the web browser tab or window being used for the test, but do not
+quit the browser or clear credentials. ~(That is only for convenience;
+it is also acceptable to log out entirely and log in again.)
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+11 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Using the same web browser, navigate to the home page of the selected
+instance of the LSP at the LDF. ~From the displayed page, navigate to
+the Portal Aspect.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+No credentials should be needed unless an explicit logout or
+credential-clearing action was performed.\\[2\baselineskip]The Portal
+Aspect UI should be displayed with the TAP search screen in the
+foreground and no image or tabular search results present.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+12 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Select the blue ``Upload'' button at the top of the screen. ~On the
+resulting screen, choose to upload from the workspace. ~Verify that the
+image file saved in Step 9 above, ``LVV-T1818-ufw-image.fits'', is
+visible. ~Select the file and open it with the UI. ~Verify qualitatively
+that it seems to be the same image as displayed above in Step 8.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The saved image should be displayed. ~Depending on the Portal Aspect
+software version deployed at the time of test, the image may be
+displayed immediately, or it may be necessary to navigate through a UI
+for choosing which extension in the file to display.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+13 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Select ``Upload'' again. ~This time choose the filtered table file,
+``LVV-T1818-ufw-table-w1m8.csv''. ~Note the number of rows displayed and
+verify qualitatively that the sky coordinates correspond to the region
+around the original (2,0) search center.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The small, filtered table should be displayed, with the same number of
+rows as previously.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Select ``Upload'' again. ~This time choose the full table file,
+``LVV-T1818-ufw-table.csv''. ~Note the number of rows displayed and
+verify qualitatively that the sky coordinates correspond to the region
+around the original (2,0) search center.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The original query table should be displayed, with the same number of
+rows as previously.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+
+\input{appendix.tex}
+\end{document}

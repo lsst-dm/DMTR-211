@@ -1,2 +1,2 @@
 # DMTR-211
-DM-SUIT-8 SUIT Portal integrated with workspace Test Report
+DM-SUIT-8: Portal Integrated with Workspace Test Plan and Report
