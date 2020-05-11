@@ -120,6 +120,21 @@ The documentation related to this test campaign should be provided in the follow
 \item DocuShare Collection Not Specified
 \end{itemize}
 
+\begin{longtable}{rp{10cm}l}
+\multicolumn{3}{c}{Jira Attachments} \\ \hline
+To LVV-C151 results & \href{\attachmentsUrl/LVV-T1818-ufw-table-w1m8.csv?raw=true}{LVV-T1818-ufw-table-w1m8.csv} &
+\attachfile{attachments/LVV-T1818-ufw-table-w1m8.csv}\\ \hline
+To LVV-C151 results & \href{\attachmentsUrl/LVV-T1818-ufw-table.csv?raw=true}{LVV-T1818-ufw-table.csv} &
+\attachfile{attachments/LVV-T1818-ufw-table.csv}\\ \hline
+To LVV-C151 results & \href{\attachmentsUrl/LVV-T1818-ufw-table-saved.png?raw=true}{LVV-T1818-ufw-table-saved.png} &
+\attachfile{attachments/LVV-T1818-ufw-table-saved.png}\\ \hline
+To LVV-C151 results & \href{\attachmentsUrl/LVV-T1818-ufw-image-display.png?raw=true}{LVV-T1818-ufw-image-display.png} &
+\attachfile{attachments/LVV-T1818-ufw-image-display.png}\\ \hline
+\end{longtable}
+
+All documents provided as attachments in Jira are downloaded to Github and linked here for convenience.
+However, since they are not properly versioned, they should be considered informal and therefore
+not be part of the verification baseline.
 
 
 \subsection{PMCS Activity}
@@ -146,7 +161,7 @@ Gregory Dubois-Felsmann}
 } \\\hline
 \textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
-& {\small Gregory Dubois-Felsmann } & {\small  } &
+& {\small Gregory Dubois-Felsmann } & {\small Gregory Dubois-Felsmann } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small An authorized user of the LSP instance under test }
@@ -170,17 +185,19 @@ Gregory Dubois-Felsmann}
 \multicolumn{2}{r}{ T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P69}{LVV-P69}:} &
 \multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Approved \\\hline
 \multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C151}{LVV-C151}:} &
-\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Not Executed \\\hline
+\multicolumn{2}{p{10.9cm}}{\textbf{ DM-SUIT-8: Portal Integrated with Workspace }} & Done \\\hline
 \textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1818}{LVV-T1818}
 &  1
-& Not Executed &
+& Pass w/ Deviation &
 \begin{minipage}[]{9cm}
 \smallskip
-
+Executed on lsst-lsp-int.ncsa.illinois.edu, from a personally-owned
+Apple Macbook Air laptop, via the NCSA VPN.
 \medskip
 \end{minipage}
 &
+\href{https://jira.lsstcorp.org/browse/DM-24849}{DM-24849}
 \\\hline
 \caption{Test Campaign Summary}
 \label{table:summary}
@@ -206,7 +223,7 @@ Not yet available.
 Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C151}{DM-SUIT-8: Portal Integrated with Workspace}} in Jira.
 
 Test Cycle name: DM-SUIT-8: Portal Integrated with Workspace\\
-Status: Not Executed
+Status: Done
 
 This test cycle contains a single test case which demonstrates several
 of the Portal Aspect features of interaction with the User File
@@ -269,9 +286,10 @@ A read/write WebDAV service, accessible to the user performing the test,
 must be available and under the same authentication redirect coverage as
 the Portal Aspect and the TAP service used for the test.
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf Pass w/ Deviation }
 
-Final comment:\\
+Final comment:\\Executed on lsst-lsp-int.ncsa.illinois.edu, from a personally-owned
+Apple Macbook Air laptop, via the NCSA VPN.
 
 
 Detailed steps results:
@@ -301,11 +319,15 @@ default.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Logged in to lsst-lsp-int LSP instance. ~Logged in with NCSA VPN (from
+home) and Caltech credentials (federated with NCSA ID). ~``Gregory
+Dubois-Felsmann'' displayed in upper right of Portal screen. ~``TAP
+Searches'' Portal screen displayed by default.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -330,11 +352,12 @@ displayed as selectable menus.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Reached this screen by default.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -373,11 +396,13 @@ configurable 2D density plot.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Schema ``wise\_00'', table ``wise\_oo.allwise\_p3as\_psd''. ~Query
+returned 12,717 rows.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 4 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -401,11 +426,20 @@ workspace.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The UI was straightforward to use to choose (and create, if desired) a
+destination folder and save the file, but it did not provide an
+immediate positive indication of successful saving. ~However, clicking
+the ``save'' button again, however, revealing the workspace UI again,
+did display the file and its size and date (see included
+image).\\[2\baselineskip]The LSP team should think about whether a
+``file xxx.yyy successfully saved'' dialog requiring an ``OK'' action,
+or a transient on-screen notification, would be desirable. (Such work
+would need to be deferred until the restart of Portal effort.)
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -437,11 +471,14 @@ Approximately 10 rows should remain visible.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The column-header filter boxes were visible by default; it was not
+necessary to use the ``funnel'' button.\\[2\baselineskip]Filtering on
+`w1mpro' as directed yielded 10 rows of data.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 6 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -465,11 +502,14 @@ workspace.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+This was successful; the same comments as above apply to the ``UI
+indication'' of success; it was necessary to select the ``save'' button
+again to get a dialog confirming the save.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 7 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -495,11 +535,12 @@ The ``IRSA Viewer'' image-search screen will be displayed.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Operated as expected.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 8 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -558,11 +599,14 @@ coordinates.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Results obtained as described.\\[2\baselineskip](As expected, markers
+for the 10 catalog rows remaining after the filter are displayed over
+the image. They do correspond to bright visible sources.)
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 9 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -586,11 +630,24 @@ A UI indication of a successful file-save action.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The operation was successful, with the same note about
+success-indication as above.\\[2\baselineskip]A flaw in the UI appears
+to be that the table-saving dialog supplies the file extension, while
+the image-saving dialog does not; the initial attempt to save the file
+produced a file without the ``.fits'' extension, which had to be
+supplied explicitly in a second attempt.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Issues found executing this step:  \\
+ & \begin{minipage}[t]{13cm}{\footnotesize
+\href{https://jira.lsstcorp.org/browse/DM-24849}{DM-24849}~~Firefly save/download dialogs are inconsistent in whether the file type
+extension is added
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
 
 10 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -612,11 +669,12 @@ it is also acceptable to log out entirely and log in again.)
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Done
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 11 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -642,11 +700,12 @@ foreground and no image or tabular search results present.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Done, displayed as expected.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 12 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -674,11 +733,14 @@ for choosing which extension in the file to display.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Successful. ~The second version in the ``expected result'' above was
+observed. ~The UI displayed a list of extensions in the file, and then
+displayed the image when the extension was opened.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 13 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -703,11 +765,13 @@ rows as previously.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The table was displayed as expected, and overplotted appropriately on
+the image. ~10 rows were retrieved.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 14 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -732,11 +796,12 @@ rows as previously.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Successful
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
