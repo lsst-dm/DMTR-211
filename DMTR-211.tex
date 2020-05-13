@@ -207,12 +207,35 @@ Apple Macbook Air laptop, via the NCSA VPN.
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
 
-Not yet available.
+This test was first carried out, successfully, in November 2019. ~At
+that time the test was not modeled in Jira. ~In May 2020, after the
+creation of Jira artifacts representing it, the test was repeated and
+the results are logged here.\\[2\baselineskip]The Portal application was
+verified to be able to be used to save both images and tables to the
+user file workspace, and to browse and visualize images and tables in
+the workspace. In addition (beyond the scope of the milestone) the
+ability to create and use directories in the workspace was observed, as
+well as the ability to download workspace files through the client Web
+browser.\\[2\baselineskip]The capability is sufficiently useful that on
+the back end it is now appropriate for the WebDAV service to be attached
+to persistent storage visible in the Notebook Aspect.
 
 \subsection{Recommended Improvements}
 \label{sect:recommendations}
 
-Not yet available.
+A minor issue with consistency of the file-naming UI between different
+Portal screens was observed (whether the extension corresponding to a
+specified filetype is shown with the filename typed by the user) and
+should be made uniform across the Firefly application
+(DM-24849).\\[2\baselineskip]The Portal provides basic directory
+browsing, file reading, file creation, and directory creation functions.
+It does not provide file deletion, renaming, moving, or copying, nor
+directory deletion, renaming, or moving. In the LSST design phase we had
+not decided how to support these functions, partly because of some
+reluctance at an early phase to commit to delegating this capability to
+JupyterLab. At this point JL seems to have become pretty stable and has
+a lot of takeup, so it may be time at this point to make this
+commitment.
 
 \newpage
 \section{Detailed Test Results}
@@ -428,13 +451,16 @@ workspace.
  & \begin{minipage}[t]{15cm}{\footnotesize
 The UI was straightforward to use to choose (and create, if desired) a
 destination folder and save the file, but it did not provide an
-immediate positive indication of successful saving. ~However, clicking
-the ``save'' button again, however, revealing the workspace UI again,
-did display the file and its size and date (see included
-image).\\[2\baselineskip]The LSP team should think about whether a
-``file xxx.yyy successfully saved'' dialog requiring an ``OK'' action,
-or a transient on-screen notification, would be desirable. (Such work
-would need to be deferred until the restart of Portal effort.)
+immediate positive indication of successful saving. ~Clicking the
+``save'' button again, however, to bring up the save-to-workspace UI
+again, did display the just-saved file name and its size and date (see
+included image).\\[2\baselineskip]The LSP team should think about
+whether a ``file xxx.yyy successfully saved'' dialog requiring an ``OK''
+action, or a transient on-screen notification, would be desirable. (Such
+work would need to be deferred until the restart of Portal
+effort.)\\[2\baselineskip]It was observed that, upon revisiting the
+save-to-workspace UI, the file name was a link to a simple URL which
+could be used to download the saved file to the client browser.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -516,10 +542,10 @@ again to get a dialog confirming the save.
 {\footnotesize
 Navigate to the legacy IRSA image access screen, using the blue
 ``External Images'' button at the top of the
-screen.\\[2\baselineskip]Note that and the following step are being done
-exclusively to load an image into the viewer, not itself to demonstrate
-an LSP-Portal-specific capability; this test bypasses the lack of a
-current image query service in the LSP.
+screen.\\[2\baselineskip]Note that this and the following step are being
+done exclusively to load an image into the viewer, not itself to
+demonstrate an LSP-Portal-specific capability; these steps simply bypass
+the lack of a current image query service in the LSP.
 
 \medskip }
 \end{minipage}
